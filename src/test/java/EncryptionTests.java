@@ -40,14 +40,14 @@ public class EncryptionTests {
     }
 
     private Encoded encrypt(byte[] key) throws GeneralSecurityException {
-        return new BlowfishEncoderDecoderPOC().encrypt(
+        return new BlowfishCodec().encrypt(
             key,
             payload.getBytes(ascii)
         );
     }
 
     private byte[] decrypt(byte[] key, Encoded result) throws GeneralSecurityException {
-        return new BlowfishEncoderDecoderPOC().decrypt(
+        return new BlowfishCodec().decrypt(
             key,
             result
         );
@@ -74,13 +74,13 @@ public class EncryptionTests {
 
         String cat = result.concatenateAndEncode();
 
-        byte[] decryptedPayload = new BlowfishEncoderDecoderPOC().decryptConcatenated(key, cat);
+        byte[] decryptedPayload = new BlowfishCodec().decryptConcatenated(key, cat);
         assertThat(decryptedPayload, equalTo(this.payload.getBytes(ascii)));
     }
 
     @Test
     public void it_can_concatenate_and_parse() {
-        byte[] iv = new byte[BlowfishEncoderDecoderPOC.IV_BYTE_SIZE];
+        byte[] iv = new byte[BlowfishCodec.IV_BYTE_SIZE];
         new SecureRandom().nextBytes(iv);
 
         byte[] encryptedPayload = "EncryptedPayload".getBytes(Charset.forName("ASCII"));

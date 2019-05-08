@@ -3,7 +3,7 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import java.security.*;
 
-public class BlowfishEncoderDecoderPOC {
+public class BlowfishCodec {
     public static final int IV_BYTE_SIZE = 8;
 
     Encoded encrypt(byte[] secretKey, byte[] payload) throws java.security.GeneralSecurityException {

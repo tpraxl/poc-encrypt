@@ -22,14 +22,12 @@ public class Encoded {
 
     public String concatenateAndEncode() {
         String ivHexRepresentation = new ByteArrayHexEncodedStringConverter().ivToHexRepresentation(iv);
-        System.out.println("ivHex: "+ivHexRepresentation);
         return ivHexRepresentation + Base64.getEncoder().encodeToString(encryptedPayload);
     }
 
     public static Encoded parseConcatenated(String cat) {
         // 16 characters that hex encode an 8 byte iv
         String ivHex = cat.substring(0, 16);
-        System.out.println("ivHexDec: "+ivHex);
         byte[] iv = new ByteArrayHexEncodedStringConverter().hexEncoded8ByteKeyToByteArray(ivHex);
 
         // base64 encoded encrypted payload
