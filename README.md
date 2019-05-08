@@ -38,7 +38,7 @@ print(IV + ENCODED);
 
 ####
 #
-# Usage: export KEY={key-placeholder}; ./encrypt.sh $(cat user.json)
+# Usage: export KEY=cafebabecafebabecafebabecafebabe; ./encrypt.sh $(cat user.json)
 #
 ###
 
@@ -77,7 +77,7 @@ Use the following script for decryption and verify that your encrypted value get
 ####
 #
 # Usage:
-# export KEY={key-placeholder}; $(cat encrypted.json) | ./decrypt.sh
+# export KEY=cafebabecafebabecafebabecafebabe; $(cat encrypted.json) | ./decrypt.sh
 #
 ###
 
